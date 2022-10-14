@@ -1,4 +1,4 @@
-# Particles.Maui
+# Particle.Maui
 A MAUI library to display particles e.g. confetti. Should work on all platforms. Ported from the Xamarin Forms version of this library: https://github.com/mariusmuntean/Particle.Forms
 
 Get it from NuGet [![Nuget](https://img.shields.io/nuget/vpre/particle.forms)](https://www.nuget.org/packages/particle.maui/)
