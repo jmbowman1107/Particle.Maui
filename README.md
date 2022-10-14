@@ -1,7 +1,7 @@
-# Particles.Forms
-A Xamarin.Forms library to display particles e.g. confetti. Should work on all platforms.
+# Particles.Maui
+A MAUI library to display particles e.g. confetti. Should work on all platforms. Ported from the Xamarin Forms version of this library: https://github.com/mariusmuntean/Particle.Forms
 
-Get it from NuGet [![Nuget](https://img.shields.io/nuget/vpre/particle.forms)](https://www.nuget.org/packages/particle.forms/)
+Get it from NuGet [![Nuget](https://img.shields.io/nuget/vpre/particle.forms)](https://www.nuget.org/packages/particle.maui/)
 
 ## Preview
 <img src="Media/sample.gif" width="640px" />
@@ -41,10 +41,10 @@ These properties aren't bindable.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:Particle.Forms;assembly=Particle.Forms"
-             x:Class="Particle.Forms.Sample.Demo2.Demo2"
+             xmlns:particle="clr-namespace:Particle.Maui;assembly=Particle.Maui"
+             x:Class="Particle.Maui.Sample.Demo2.Demo2"
              Title="Custom Particles">
     <ContentPage.Resources>
         <x:Array Type="{x:Type Color}" x:Key="ConfettiColors">
@@ -62,7 +62,7 @@ These properties aren't bindable.
           Margin="0 ,0, 0, 5">
 
 
-        <forms:ParticleView x:Name="MyParticleCanvas"
+        <particle:ParticleView x:Name="MyParticleCanvas"
                             IsActive="True"
                             IsRunning="True"
                             HasFallingParticles="True"
