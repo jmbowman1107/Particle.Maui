@@ -16,7 +16,7 @@
 Supports confetti-like falling particles and radiating particles from touch input.
 Can be extended with custom particle generators.</Description>
     <UseMaui>true</UseMaui>
-    <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst;net6.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
