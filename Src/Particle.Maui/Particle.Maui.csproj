@@ -2,13 +2,13 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <PackageId>Particle.Maui</PackageId>
-    <PackageVersion>1.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Jeff Bowman</Authors>
     <Copyright>2022</Copyright>
     <Owners>Jeff Bowman</Owners>
-    <PackageProjectUrl>https://github.com/jbowman1107p/Particle.Maui</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/jbowmanp1107/Particle.Maui</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>See the API reference: https://github.com/mariusmuntean/Particle.Maui#api-reference</PackageReleaseNotes>
+    <PackageReleaseNotes>See the API reference: https://github.com/jbowmanp1107/Particle.Maui#api-reference</PackageReleaseNotes>
     <Summary>A MAUI library to display particles e.g. confetti. Should work on all platforms.</Summary>
     <PackageTags>MAUI Particles Confetti CustomControl</PackageTags>
     <Title>Particle.Maui</Title>
@@ -20,17 +20,21 @@ Can be extended with custom particle generators.</Description>
     <OutputType>Library</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/jbowmanp1107/Particle.Maui</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.346202">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.0-preview.256" />
-    <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.0-preview.256" />
-    <PackageReference Include="SkiaSharp.Views.Maui.Controls.Compatibility" Version="2.88.0-preview.256" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Controls.Compatibility" Version="2.88.3" />
   </ItemGroup>
 </Project>
