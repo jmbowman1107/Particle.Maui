@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:particle="clr-namespace:Particle.Maui;assembly=Particle.Maui"
+             x:Class="Particle.Maui.Sample.MainPage"
+             Visual="Material"
+             BackgroundColor="#0f0f0F"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid VerticalOptions="FillAndExpand"
+          Margin="0 ,0, 0, 5">
+
+
+    <particle:ParticleView x:Name="MyParticleCanvas"
+                              FallingParticlesPerSecond="25.0"
+                              IsActive="True"
+                              IsRunning="True"
+                              HasFallingParticles="True"
+                              Margin="0, 20"
+                              VerticalOptions="FillAndExpand"
+                              HorizontalOptions="FillAndExpand"
+                              InputTransparent="True"/>
+        
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Button Text="Confetti" BackgroundColor="#29cdff" TextColor="#0f0f0f" Clicked="Demo1Btn_OnClicked" />
+            <Button Text="Custom Shape" BackgroundColor="#78ff44" TextColor="#0f0f0f" Clicked="Demo2Btn_OnClicked" />
+        </StackLayout>
+
+        <Label x:Name="TitleLabel"
+               Text="Particles Sample App"
+               TextColor="#29cdff"
+               FontSize="36"
+               FontAttributes="Bold"
+               TextDecorations="Underline"
+               Margin="0, 30"
+               VerticalOptions="Start"
+               HorizontalOptions="Center" />
+
+    </Grid>
+
+</ContentPage>

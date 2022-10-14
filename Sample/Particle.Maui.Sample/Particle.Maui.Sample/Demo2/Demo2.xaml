@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Particle.Maui;assembly=Particle.Maui"
+             x:Class="Particle.Maui.Sample.Demo2.Demo2"
+             Title="Custom Particles">
+    <ContentPage.Resources>
+        <x:Array Type="{x:Type Color}" x:Key="ConfettiColors">
+            <Color>#a864fd</Color>
+            <Color>#29cdff</Color>
+            <Color>#78ff44</Color>
+            <Color>#ff718d</Color>
+            <Color>#fdff6a</Color>
+            <Color>#ffcbf2</Color>
+        </x:Array>
+    </ContentPage.Resources>
+
+    <Grid VerticalOptions="FillAndExpand"
+          BackgroundColor="White"
+          Margin="0 ,0, 0, 5">
+
+
+        <forms:ParticleView x:Name="MyParticleCanvas"
+                            IsActive="True"
+                            IsRunning="True"
+                            HasFallingParticles="True"
+                            FallingParticlesPerSecond="20"
+                            ShowDebugInfo="False"
+                            DebugInfoColor="Fuchsia"
+                            Margin="0, 20"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            ParticleColors="{StaticResource ConfettiColors}">
+            <forms:ParticleView.UseSKGLView>
+                <OnPlatform x:TypeArguments="x:Boolean">
+                    <On Platform="Android" Value="True" />
+                    <On Platform="iOS, macOS" Value="False" />
+                </OnPlatform>
+            </forms:ParticleView.UseSKGLView>
+        </forms:ParticleView>
+        
+        <StackLayout Margin="5"
+                     Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     VerticalOptions="End">
+            <Label Text="Debug Info" VerticalOptions="Center" TextColor="Goldenrod" />
+            <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=ShowDebugInfo}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Particle.Maui.Sample"
+             xmlns:forms="clr-namespace:Particle.Maui;assembly=Particle.Maui"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="Particle.Maui.Sample.Demo1"
+             Visual="Material">
+    <ContentPage.Resources>
+        <x:Array Type="{x:Type Color}" x:Key="ConfettiColors">
+            <Color>#a864fd</Color>
+            <Color>#29cdff</Color>
+            <Color>#78ff44</Color>
+            <Color>#ff718d</Color>
+            <Color>#fdff6a</Color>
+            <Color>#ffcbf2</Color>
+        </x:Array>
+    </ContentPage.Resources>
+
+    <Grid VerticalOptions="FillAndExpand"
+          BackgroundColor="White"
+          Margin="0 ,0, 0, 5">
+
+
+        <forms:ParticleView x:Name="MyParticleCanvas"
+                              TapParticleCount="100"
+                              FallingParticlesPerSecond="10"
+                              DragParticleMoveType="Radiate"
+                              ShowDebugInfo="True"
+                              DebugInfoColor="Fuchsia"
+                              Margin="0, 20"
+                              VerticalOptions="FillAndExpand"
+                              HorizontalOptions="FillAndExpand"
+                              ParticleColors="{StaticResource ConfettiColors}" />
+        <Grid VerticalOptions="End">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <StackLayout Grid.Column="0"
+                         Grid.Row="0"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="IsActive" VerticalOptions="Center" TextColor="Red" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=IsActive}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="0"
+                         Grid.Row="1"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="Falling Particles" VerticalOptions="Center" TextColor="DodgerBlue" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=HasFallingParticles}" />
+            </StackLayout>
+            
+            <StackLayout Grid.Column="0"
+                         Grid.Row="2"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="IsRunning" VerticalOptions="Center" TextColor="DodgerBlue" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=IsRunning, Mode=TwoWay}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1"
+                         Grid.Row="0"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="Add on Tap" VerticalOptions="Center" TextColor="DarkViolet" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=AddParticlesOnTap}" />
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Grid.Row="1"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="Add on Drag" VerticalOptions="Center" TextColor="Goldenrod" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=AddParticlesOnDrag}" />
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Grid.Row="2"
+                         Margin="0,0,5,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="End">
+                <Label Text="Debug Info" VerticalOptions="Center" TextColor="Goldenrod" />
+                <Switch IsToggled="{Binding Source={x:Reference MyParticleCanvas}, Path=ShowDebugInfo}" />
+            </StackLayout>
+            <StackLayout Grid.Column="0"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         Margin="5,0"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="End">
+                <Label VerticalOptions="Center" TextColor="LimeGreen" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="New Particles/Second: " />
+                            <Span Text="{Binding Source={x:Reference MyParticleCanvas}, Path=FallingParticlesPerSecond}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Slider Minimum="0" Maximum="250" 
+                        HorizontalOptions="FillAndExpand"
+                        ThumbColor="DeepSkyBlue"
+                        MaximumTrackColor="LimeGreen"
+                        MinimumTrackColor="OrangeRed"
+                        Value="{Binding Source={x:Reference MyParticleCanvas}, Path=FallingParticlesPerSecond, Mode=TwoWay}" ></Slider>
+            </StackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>
